@@ -1,0 +1,1 @@
+DOCKER_CERT_PATH=/certs/client DOCKER_TLS_VERIFY=1 DOCKER_HOST=tcp://docker:2376 docker build @
