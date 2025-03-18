@@ -20,7 +20,17 @@ jobs:
 
 
       - name: Maven install dependencies
-        run: ./mvnw clean install -Dmaven.test.skip=true
+        run: ./mvnw clean install package -Dmaven.test.skip=true
+
+      - name: Run tests
+        run: ./mvnw test
+
+
+      - name: Upload JAR artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-protector
+          path: ./target/*.jar
 
   docker:
     #if: ${{ github.event.pull_request.merged }}
