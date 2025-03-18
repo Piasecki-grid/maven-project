@@ -42,10 +42,10 @@ jobs:
         with:
           push: false
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/apiprotector:$${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/apiprotector:${{ github.sha }}
 
       - name: Docker Push
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/apiprotector:$${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/apiprotector:${{ github.sha }}
